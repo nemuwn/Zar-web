@@ -1,11 +1,11 @@
 import Link from "next/link";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useContext } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import Button from "./Button";
 import Image from "next/image";
-// import { useDispatch, useSelector } from 'react-redux';
 
+// import { useDispatch, useSelector } from 'react-redux';
 // import Button from '@/components/Button';
 // import { Dispatch } from '@/lib/actions';
 // import { StoreState } from '@/lib/store';
@@ -42,7 +42,7 @@ const HeaderTop = styled.div`
       font-weight: 400;
     }
   }
-  span {
+  .link-underlined {
     position: relative;
     display: inline-block;
     line-height: normal;
@@ -252,7 +252,7 @@ function Header() {
       <HeaderTop>
         <div className="LeftBox">
           <div className="item">
-            <span>ENGLISH</span>
+            <span className="link-underlined">ENGLISH</span>
           </div>
         </div>
         <div className="CenterBox">
@@ -282,13 +282,20 @@ function Header() {
             <span>MENU</span>
           </a>
         </LeftHeader>
+        <Link href="/">
+          <Logo>
+            <a>
+              <Image src="/assets/FinalLogo.svg" height={100} width={100} />
+            </a>
+          </Logo>
+        </Link>
 
         <RightHeader>
           {search ? (
             <SearchContainer>
               <Search
-                buttonText="Haih"
-                placeholder="Zaraa bicheed haina uu"
+                buttonText="ХАЙХ"
+                placeholder="Зараа бичээд хайна уу..."
                 setSearch={setSearch}
               />
             </SearchContainer>
@@ -308,13 +315,6 @@ function Header() {
             </>
           )}
         </RightHeader>
-        <Link href="/">
-          <Logo>
-            <a>
-              <Image src="/assets/FinalLogo.svg" height={100} width={100} />
-            </a>
-          </Logo>
-        </Link>
       </HeaderBot>
     </>
   );

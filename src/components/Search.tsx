@@ -4,20 +4,49 @@ import Button from "./Button";
 import { grey } from "@mui/material/colors";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
+
 const SearchContainer = styled.form`
   width: 100%;
   display: flex;
   align-items: center;
 `;
 const SearchButton = styled(Button)`
-  color: #fff;
+  color: #202121;
   width: 10%;
   height: 40px;
   border: none;
   font-size: 13px;
   font-weight: bold;
   border-radius: 2px;
-  background-color: red;
+  background-color: transparent;
+  &:hover {
+    background-color: transparent;
+  }
+
+  .underlined {
+    position: relative;
+    display: inline-block;
+    line-height: normal;
+    color: #202121;
+    cursor: pointer;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(
+        to right,
+        black 45%,
+        rgba(32, 33, 33, 0.3) 55%
+      );
+      background-size: 220% 100%;
+      background-position: 100% 50%;
+      transition: 0.3s ease-out;
+    }
+  }
 `;
 
 const SearchInput = styled.input`
@@ -26,7 +55,8 @@ const SearchInput = styled.input`
   border: none;
   outline: none;
   font-size: 14px;
-  padding-left: 40px;
+  padding-left: 20px;
+  background-color: #f4f7f6;
 `;
 
 const GroupInput = styled.div`
@@ -50,11 +80,14 @@ const GroupInput = styled.div`
   }
 `;
 const CloseButton = styled.button`
-  width: 4%;
+  width: 66px;
   height: 70px;
   background-color: #202121;
   cursor: pointer;
   border: none;
+  svg {
+    font-size: 28px;
+  }
 `;
 
 function Search({
@@ -69,10 +102,11 @@ function Search({
   return (
     <SearchContainer>
       <GroupInput>
-        <SearchIcon />
         <SearchInput name="query" placeholder={placeholder} />
       </GroupInput>
-      <SearchButton type="submit">{buttonText}</SearchButton>
+      <SearchButton className="underlined" type="submit">
+        {buttonText}
+      </SearchButton>
 
       <CloseButton onClick={() => setSearch(false)}>
         <CloseIcon sx={{ color: grey[50] }} />
