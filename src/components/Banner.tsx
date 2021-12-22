@@ -52,6 +52,19 @@ const BannerImages = styled.div<{ imgsrc: string }>`
   background-position: center;
 `;
 
+const CarouselDesc = styled.div`
+  width: 100%;
+  height: 10%;
+  color: #ffffff;
+  text-align: center;
+
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+`;
+
 export const Banner = () => {
   return (
     <Container>
@@ -71,6 +84,10 @@ export const Banner = () => {
           <BannerImages imgsrc={src} />
         ))}
       </Carousel>
+      <CarouselDesc>
+        <h1>SEEKER.MN</h1>
+        <p>The awards of design, creativity and innovation on the internet</p>
+      </CarouselDesc>
     </Container>
   );
 };
