@@ -12,11 +12,82 @@ import Image from "next/image";
 // import { useProfile } from '@/hooks/useProfile';
 
 import MenuIcon from "@mui/icons-material/Menu";
-
 import SearchIcon from "@mui/icons-material/Search";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+
 import Search from "./Search";
 
-const HeaderTop = styled.header`
+const HeaderTop = styled.div`
+  position: relative;
+  justify-content: space-between;
+  display: flex;
+  height: 70px;
+
+  align-items: center;
+  background-color: #f4f7f6;
+  border-bottom: 1px solid #e6eaea;
+
+  .LeftBox,
+  .RightBox {
+    width: 15%;
+  }
+  .CenterBox {
+    width: 70%;
+    text-align: center;
+    h1 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+  span {
+    position: relative;
+    display: inline-block;
+    line-height: normal;
+    color: #202121;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 300;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(
+        to right,
+        black 45%,
+        rgba(32, 33, 33, 0.3) 55%
+      );
+      background-size: 220% 100%;
+      background-position: 100% 50%;
+      transition: 0.3s ease-out;
+    }
+  }
+  .item {
+    padding: 0 23px;
+  }
+  .social {
+    text-align: right;
+  }
+  svg {
+    font-size: 1rem;
+  }
+  li {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  li:last-child {
+    margin-right: 0;
+  }
+`;
+
+const HeaderBot = styled.header`
   position: sticky;
   top: 0;
   height: 70px;
@@ -25,7 +96,7 @@ const HeaderTop = styled.header`
   align-items: center;
 
   font-size: 13px;
-  background-color: #ffffff;
+  background-color: #f4f7f6;
   z-index: 9;
 `;
 
@@ -73,8 +144,13 @@ const SearchContainer = styled.div`
 `;
 
 const Logo = styled.div`
-  margin-left: auto;
-  margin-right: auto;
+  display: block;
+  position: absolute;
+  left: 50%;
+  width: auto;
+
+  line-height: normal;
+  transform: translateX(-50%);
 `;
 
 const GroupButtons = styled.div`
@@ -85,16 +161,19 @@ const GroupButtons = styled.div`
 `;
 
 const LoginButton = styled.button`
+  flex: 1;
+  align-items: center;
   padding: 0 23px;
-  height: 40px;
+  height: 70px;
   border: none;
   background-color: transparent;
+
   font-size: 14px;
-  color: #000;
+  color: #202121;
   font-weight: 600;
   text-transform: uppercase;
-  align-items: center;
   text-align: right;
+
   cursor: pointer;
 
   &:hover {
@@ -169,47 +248,75 @@ function Header() {
   const [search, setSearch] = useState(false);
 
   return (
-    <HeaderTop>
-      <LeftHeader>
-        <a>
-          <MenuIcon />
+    <>
+      <HeaderTop>
+        <div className="LeftBox">
+          <div className="item">
+            <span>ENGLISH</span>
+          </div>
+        </div>
+        <div className="CenterBox">
+          <h1>
+            The awards of design, creativity and innovation on the internet
+          </h1>
+        </div>
+        <div className="RightBox">
+          <ul className="social item">
+            <li>
+              <InstagramIcon />
+            </li>
+            <li>
+              <FacebookIcon />
+            </li>
+            <li>
+              <TwitterIcon />
+            </li>
+          </ul>
+        </div>
+      </HeaderTop>
+      <HeaderBot>
+        <LeftHeader>
+          <a>
+            <MenuIcon />
 
-          <span>MENU</span>
-        </a>
-      </LeftHeader>
+            <span>MENU</span>
+          </a>
+        </LeftHeader>
 
-      <RightHeader>
-        {search ? (
-          <SearchContainer>
-            <Search
-              buttonText="Haih"
-              placeholder="Zaraa bicheed haina uu"
-              setSearch={setSearch}
-            />
-          </SearchContainer>
-        ) : (
-          <>
-            <HeaderSearch>
-              <a onClick={() => setSearch(true)}>
-                <SearchIcon />
-              </a>
-            </HeaderSearch>
-            <Link href="/">
-              <Logo>
-                <a>
-                  <Image src="/assets/FinalLogo.svg" height={100} width={100} />
+        <RightHeader>
+          {search ? (
+            <SearchContainer>
+              <Search
+                buttonText="Haih"
+                placeholder="Zaraa bicheed haina uu"
+                setSearch={setSearch}
+              />
+            </SearchContainer>
+          ) : (
+            <>
+              <HeaderSearch>
+                <a onClick={() => setSearch(true)}>
+                  <SearchIcon />
                 </a>
-              </Logo>
-            </Link>
-            <GroupButtons>
+              </HeaderSearch>
               <LoginButton>
                 <a>Нэвтрэх</a>
               </LoginButton>
-            </GroupButtons>
-          </>
-        )}
-      </RightHeader>
-    </HeaderTop>
+              <GroupButtons>
+                <AddButton>Зар нэмэх</AddButton>
+              </GroupButtons>
+            </>
+          )}
+        </RightHeader>
+        <Link href="/">
+          <Logo>
+            <a>
+              <Image src="/assets/FinalLogo.svg" height={100} width={100} />
+            </a>
+          </Logo>
+        </Link>
+      </HeaderBot>
+    </>
   );
 }
 
