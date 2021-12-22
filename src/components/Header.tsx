@@ -1,9 +1,5 @@
 import Link from "next/link";
-<<<<<<< HEAD
-import React, { Dispatch, useCallback, useState } from "react";
-=======
 import React, { useCallback, useState, useContext } from "react";
->>>>>>> 9e6a5837a2d203e4882a9abc4778246166a76be2
 import styled from "styled-components";
 import Button from "./Button";
 import Image from "next/image";
