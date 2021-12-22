@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 import Header from "../components/Header";
 import { AppMain, MenuSlider } from "../components/Drawer";
 function MyApp({ Component, pageProps }: AppProps) {
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>

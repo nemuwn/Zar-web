@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useCallback, useState, useContext } from "react";
+import React, { useState, useRef, Dispatch, useEffect } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import Image from "next/image";
@@ -84,7 +84,7 @@ const HeaderTop = styled.div`
   }
   li:last-child {
     margin-right: 0;
-  }MenuSlider
+  }
 `;
 
 const HeaderBot = styled.header`
@@ -103,7 +103,7 @@ const HeaderBot = styled.header`
 const LeftHeader = styled.div`
   line-height: 73px;
   padding: 0 23px;
-  min-width: 130px;MenuSlider
+  min-width: 130px;
   height: 70px;
   border-right: 1px solid #e6eaea;
   cursor: pointer;
@@ -121,13 +121,13 @@ const LeftHeader = styled.div`
 `;
 
 const RightHeader = styled.div`
-  display: flex;MenuSlider
+  display: flex;
   justify-content: flex-end;
   flex: 1;
 `;
 
 const HeaderSearch = styled.div`
-  padding: 0 23px;MenuSlider
+  padding: 0 23px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -142,17 +142,14 @@ const HeaderSearch = styled.div`
 const SearchContainer = styled.div`
   width: 100%;
 `;
-MenuSlider;
+
 const Logo = styled.div`
-  display: block;
   position: absolute;
   left: 50%;
   width: auto;
-
   line-height: normal;
   transform: translateX(-50%);
 `;
-
 const GroupButtons = styled.div`
   height: 70px;
   display: flex;
@@ -246,6 +243,17 @@ const UserName = styled.div`
 
 function Header({ setMenuOpen }: { setMenuOpen: Dispatch<boolean> }) {
   const [search, setSearch] = useState(false);
+  const [logo, setLogo] = useState(false);
+  const changeLogo = () => {
+    if (window.scrollY > 100) {
+      setLogo(true);
+    } else {
+      setLogo(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", changeLogo);
+  }, []);
 
   return (
     <>
@@ -285,7 +293,11 @@ function Header({ setMenuOpen }: { setMenuOpen: Dispatch<boolean> }) {
         <Link href="/">
           <Logo>
             <a>
-              <Image src="/assets/FinalLogo.svg" height={100} width={100} />
+              {logo ? (
+                <Image src="/assets/SymbolLogo.svg" height={50} width={50} />
+              ) : (
+                <Image src="/assets/FinalLogo.svg" height={120} width={120} />
+              )}
             </a>
           </Logo>
         </Link>

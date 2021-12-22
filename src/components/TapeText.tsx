@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Tape__wrapper = styled.form`
+  margin-top: -4px;
   box-sizing: content-box;
   display: block;
   position: relative;
@@ -55,8 +56,8 @@ const Tape__wrapper = styled.form`
     animation-timing-function: linear;
     -webkit-animation-name: ticker;
     animation-name: ticker;
-    -webkit-animation-duration: 120s;
-    animation-duration: 120s;
+    -webkit-animation-duration: 70s;
+    animation-duration: 70s;
   }
 `;
 

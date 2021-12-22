@@ -71,6 +71,7 @@ export const Banner = () => {
       <Carousel
         infiniteLoop
         autoPlay
+        showThumbs={false}
         autoFocus
         showArrows={false}
         renderArrowPrev={(clickHandler) => (

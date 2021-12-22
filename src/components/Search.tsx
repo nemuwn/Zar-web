@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import { grey } from "@mui/material/colors";
@@ -14,10 +14,12 @@ const SearchButton = styled(Button)`
   color: #202121;
   width: 10%;
   height: 40px;
-  border: none;
+  border: 1px solid grey;
+  border-radius: 50px 20px;
+  box-shadow: 4px 4px grey;
   font-size: 13px;
   font-weight: bold;
-  border-radius: 2px;
+  margin-right: 10px;
   background-color: transparent;
   &:hover {
     background-color: transparent;
@@ -100,7 +102,7 @@ function Search({
 }: {
   placeholder: string;
   buttonText: string;
-  setSearch: any;
+  setSearch: Dispatch<boolean>;
 }) {
   return (
     <SearchContainer>

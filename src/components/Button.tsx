@@ -5,6 +5,7 @@ export default styled.button`
   cursor: pointer;
   font-size: 15px;
   transition: 0.2s ease-in-out;
+
   &:hover {
     background-color: #1e9889;
   }
