@@ -88,6 +88,9 @@ const CloseButton = styled.button`
   svg {
     font-size: 28px;
   }
+  &:hover {
+    background-color: #363838;
+  }
 `;
 
 function Search({
