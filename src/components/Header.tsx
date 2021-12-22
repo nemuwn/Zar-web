@@ -1,7 +1,6 @@
 import Link from "next/link";
-import React, { useCallback, useState } from "react";
+import React, { Dispatch, useCallback, useState } from "react";
 import styled from "styled-components";
-import { useRouter } from "next/router";
 import Button from "./Button";
 import Image from "next/image";
 // import { useDispatch, useSelector } from 'react-redux';
@@ -16,6 +15,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import { MenuSlider } from "./Drawer";
 
 import Search from "./Search";
 
@@ -84,7 +84,7 @@ const HeaderTop = styled.div`
   }
   li:last-child {
     margin-right: 0;
-  }
+  }MenuSlider
 `;
 
 const HeaderBot = styled.header`
@@ -103,7 +103,7 @@ const HeaderBot = styled.header`
 const LeftHeader = styled.div`
   line-height: 73px;
   padding: 0 23px;
-  min-width: 130px;
+  min-width: 130px;MenuSlider
   height: 70px;
   border-right: 1px solid #e6eaea;
   cursor: pointer;
@@ -121,13 +121,13 @@ const LeftHeader = styled.div`
 `;
 
 const RightHeader = styled.div`
-  display: flex;
+  display: flex;MenuSlider
   justify-content: flex-end;
   flex: 1;
 `;
 
 const HeaderSearch = styled.div`
-  padding: 0 23px;
+  padding: 0 23px;MenuSlider
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -142,7 +142,7 @@ const HeaderSearch = styled.div`
 const SearchContainer = styled.div`
   width: 100%;
 `;
-
+MenuSlider;
 const Logo = styled.div`
   display: block;
   position: absolute;
@@ -244,7 +244,7 @@ const UserName = styled.div`
   text-transform: uppercase;
 `;
 
-function Header() {
+function Header({ setMenuOpen }: { setMenuOpen: Dispatch<boolean> }) {
   const [search, setSearch] = useState(false);
 
   return (
@@ -276,7 +276,7 @@ function Header() {
       </HeaderTop>
       <HeaderBot>
         <LeftHeader>
-          <a>
+          <a onClick={() => setMenuOpen(true)}>
             <MenuIcon />
 
             <span>MENU</span>
