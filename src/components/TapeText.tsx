@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-const Tape__wrapper = styled.form`
+const Tape__wrapper = styled.div`
   margin-top: -4px;
   box-sizing: content-box;
   display: block;
   position: relative;
-  width: 100%;
-  background-color: #948e8e;
+ 
+  overflow: hidden;
+  background-color: #202121;;
+  color: #f4f7f6;;
 
   @-webkit-keyframes ticker {
     0% {
@@ -39,7 +41,7 @@ const Tape__wrapper = styled.form`
   }
   .ticker-tape {
     max-height: 80px;
-    width: 100%;
+ 
     padding: 20px 0;
     font-size: 3rem;
     font-weight: 600;

@@ -16,7 +16,7 @@ const Home: NextPage = () => {
       </Head>
       <Banner />
 
-      {/* <TapeText /> */}
+     
 
       <div className="bg-awwards-gray">
         <div className=" container mx-auto px-20 py-10">
@@ -36,6 +36,8 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+
+      <TapeText />
     </div>
   );
 };

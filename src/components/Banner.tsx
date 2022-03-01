@@ -85,10 +85,10 @@ export const Banner = () => {
           <BannerImages imgsrc={src} />
         ))}
       </Carousel>
-      <CarouselDesc>
+      {/* <CarouselDesc>
         <h1>SEEKER.MN</h1>
         <p>The awards of design, creativity and innovation on the internet</p>
-      </CarouselDesc>
+      </CarouselDesc> */}
     </Container>
   );
 };
