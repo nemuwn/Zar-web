@@ -3,13 +3,6 @@ import React, { useState, useRef, Dispatch, useEffect } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import Image from "next/image";
-
-// import { useDispatch, useSelector } from 'react-redux';
-// import Button from '@/components/Button';
-// import { Dispatch } from '@/lib/actions';
-// import { StoreState } from '@/lib/store';
-// import { useProfile } from '@/hooks/useProfile';
-
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -265,7 +258,7 @@ function Header({ setMenuOpen }: { setMenuOpen: Dispatch<boolean> }) {
         </div>
         <div className="CenterBox">
           <h1>
-            The awards of design, creativity and innovation on the internet
+            Монголын худалдааны төв сайт
           </h1>
         </div>
         <div className="RightBox">

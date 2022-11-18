@@ -32,11 +32,14 @@ const MenuDrawer = styled(Drawer)<{ menuOpen: boolean }>`
     }
   }
 `;
+
 const useStyles = makeStyles({
   drawer: {
     width: "300px",
   },
 });
+
+
 
 export const MenuSlider = ({
   menuOpen,
@@ -53,13 +56,13 @@ export const MenuSlider = ({
       anchor="left"
       open={menuOpen}
     >
-      <div>
+      {/* <div>
         <Typography variant="h5">MENU</Typography>
-      </div>
+      </div> */}
       <List>
         <ListItem
           className="closeBtn"
-          key="fuck"
+          key="f"
           button
           onClick={() => setMenuOpen(false)}
         >
